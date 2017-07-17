@@ -10,6 +10,8 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    @comments = @game.comments
+    @comment = Comment.new
   end
 
   # GET /games/new
