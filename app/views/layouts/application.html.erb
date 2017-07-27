@@ -7,20 +7,55 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <div id="user_nav">
-      <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> |
-        <%= link_to "Login", new_user_session_path %>
-      <% end %>
-    </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
+
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+       <div class="container">
+         <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="#">Project name</a>
+         </div>
+         <div id="navbar" class="navbar-collapse collapse">
+           <div class="navbar-right">
+             <div id="user_nav">
+               <% if user_signed_in? %>
+                 Logged in as <strong><%= current_user.email %></strong>.
+                 <%= link_to 'Edit profile', edit_user_registration_path %> |
+                 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+               <% else %>
+                 <%= link_to "Sign up", new_user_registration_path %> |
+                 <%= link_to "Login", new_user_session_path %>
+               <% end %>
+             </div>
+           </div>
+         </div><!--/.navbar-collapse -->
+       </div>
+     </nav>
+     <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
+     <%= yield %>
+
+
+       <hr>
+
+       <footer>
+         <p>&copy; 2016 Company, Inc.</p>
+       </footer>
+     </div> <!-- /container -->
+
+
+     <!-- Bootstrap core JavaScript
+     ================================================== -->
+     <!-- Placed at the end of the document so the pages load faster -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+     <script src="../../dist/js/bootstrap.min.js"></script>
+     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+   </body>
 </html>
